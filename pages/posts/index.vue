@@ -1,13 +1,16 @@
 <template>
     <div class="posts-page">
-
+      <PostList />
     </div>
 </template>
 
 <script>
-  export default {
-    name: "Posts"
+import PostList from '@/components/posts/PostList'
+export default {
+  components: {
+    PostList
   }
+}
 </script>
 
 <style scoped>
