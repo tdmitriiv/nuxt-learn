@@ -1,22 +1,25 @@
 <template>
     <div class="admin-page">
       <section class="new-post">
-        <button @click="createPost">Create Post</button>
+        <AppButton @click="createPost">Create Post</AppButton>
       </section>
       <section class="existing-posts">
         <h1>Existing Posts</h1>
-        <PostList />
+        <PostList isAdmin />
       </section>
     </div>
 </template>
 
 <script>
 import PostList from '@/components/posts/PostList'
+import AppButton from '@/components/Ui/AppButton'
 
 export default {
   name: "index",
+  layout: 'admin',
   components: {
-    PostList
+    PostList,
+    AppButton
   },
   methods: {
     createPost () {

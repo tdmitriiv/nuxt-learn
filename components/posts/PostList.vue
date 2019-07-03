@@ -5,18 +5,21 @@
       thumbnail="https://www.maketecheasier.com/assets/uploads/2019/01/intermediate-tech-feature.jpg"
       title="Hello there"
       previewText="This is my first post!"
+      :is-admin="isAdmin"
     />
     <PostPreview
       id="2"
       thumbnail="https://www.maketecheasier.com/assets/uploads/2019/01/intermediate-tech-feature.jpg"
       title="Hello there"
       previewText="This is my second post!"
+      :is-admin="isAdmin"
     />
     <PostPreview
       id="3"
       thumbnail="https://www.maketecheasier.com/assets/uploads/2019/01/intermediate-tech-feature.jpg"
       title="Hello there"
       previewText="This is my third post!"
+      :is-admin="isAdmin"
     />
   </section>
 </template>
@@ -27,6 +30,12 @@
     name: "PostList",
     components: {
       PostPreview
+    },
+    props: {
+      isAdmin: {
+        type: Boolean,
+        default: false
+      }
     }
   }
 </script>
