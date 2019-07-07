@@ -1,25 +1,13 @@
 <template>
   <section class="post-list">
     <PostPreview
-      id="1"
-      thumbnail="https://www.maketecheasier.com/assets/uploads/2019/01/intermediate-tech-feature.jpg"
-      title="Hello there"
-      previewText="This is my first post!"
+      :id="post.id"
+      :thumbnail="post.thumbnail"
+      :title="post.title"
+      :previewText="post.previewText"
       :is-admin="isAdmin"
-    />
-    <PostPreview
-      id="2"
-      thumbnail="https://www.maketecheasier.com/assets/uploads/2019/01/intermediate-tech-feature.jpg"
-      title="Hello there"
-      previewText="This is my second post!"
-      :is-admin="isAdmin"
-    />
-    <PostPreview
-      id="3"
-      thumbnail="https://www.maketecheasier.com/assets/uploads/2019/01/intermediate-tech-feature.jpg"
-      title="Hello there"
-      previewText="This is my third post!"
-      :is-admin="isAdmin"
+      v-for="post in posts"
+      :key="post.id"
     />
   </section>
 </template>
@@ -35,6 +23,10 @@
       isAdmin: {
         type: Boolean,
         default: false
+      },
+      posts: {
+        type: Array,
+        required: true
       }
     }
   }

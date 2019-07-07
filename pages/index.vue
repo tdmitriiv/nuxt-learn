@@ -3,16 +3,31 @@
     <section class="intro">
       <h1>Get the latest tech news!</h1>
     </section>
-    <PostList />
+    <PostList :posts="loadedPosts" />
   </div>
 </template>
 
 <script>
 import PostList from '@/components/posts/PostList'
+import { loadPosts } from '@/api/posts'
+
 
 export default {
   components: {
     PostList
+  },
+  /*
+  async asyncData (context) {
+    const loadedPosts = await loadPosts();
+
+    return {
+      loadedPosts
+    }
+  }*/
+  computed: {
+    loadedPosts () {
+      return this.$store.state.loadedPosts
+    }
   }
 }
 </script>

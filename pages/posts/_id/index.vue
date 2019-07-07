@@ -1,12 +1,12 @@
 <template>
     <div class="single-post-page">
       <section class="post">
-        <h1 class="post-title">Title of the post</h1>
+        <h1 class="post-title">{{ post.title }}</h1>
         <div class="post-details">
-          <div class="post-details">Last updated on XXX</div>
-          <div class="post-details">Written by NAME</div>
+          <div class="post-details">Last updated on {{ post.updatedDate }}</div>
+          <div class="post-details">Written by {{ post.author }}</div>
         </div>
-        <p class="post-content">Content of the post</p>
+        <p class="post-content">{{ post.content }}</p>
       </section>
       <div class="post-feedback">
         <p>Let me know what you think about post</p>
@@ -15,9 +15,18 @@
 </template>
 
 <script>
-  export default {
-    name: "index"
+import { loadPostSingle } from '@/api/posts'
+
+export default {
+  name: "index",
+  async asyncData ({ params }) {
+    const loadedPost = await loadPostSingle(params.id);
+
+    return {
+      post: loadedPost
+    }
   }
+}
 </script>
 
 <style scoped>
