@@ -1,4 +1,9 @@
+import axios from 'axios'
+
 export const loadPosts = () => {
+  return axios.get('https://nuxt-blog-68510.firebaseio.com/posts.json')
+    .then(res => res.data)
+  /*
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve([
@@ -8,9 +13,13 @@ export const loadPosts = () => {
       ])
     }, 1000)
   })
+  */
 };
 
 export const loadPostSingle = (id = '') => {
+  return axios.get(`https://nuxt-blog-68510.firebaseio.com/posts/${id}.json`)
+    .then(res => res.data)
+  /*
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve({
@@ -24,4 +33,5 @@ export const loadPostSingle = (id = '') => {
       })
     }, 1000)
   })
+  */
 };
