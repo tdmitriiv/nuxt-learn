@@ -22,7 +22,7 @@ export default {
   // },
   computed: {
     loadedPosts () {
-      return this.$store.state.loadedPosts
+      return this.$store.state.posts.loadedPosts
     }
   }
 }
