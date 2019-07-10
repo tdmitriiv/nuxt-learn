@@ -1,4 +1,4 @@
-import { loadPosts } from "@/api/posts";
+import { loadPosts, addPost, editPost } from "@/api/posts";
 
 export default {
   nuxtServerInit (vuexContext, context) {
@@ -19,5 +19,29 @@ export default {
   },
   setPosts (context, posts) {
     context.commit('setPosts', posts)
+  },
+  addPost (context, post) {
+    const createdPost = {
+      ...post,
+      updatedDate: new Date()
+    };
+    return addPost(createdPost)
+      .then(result => {
+        if (result && result.status === 200) {
+          context.commit('addPost', {
+            ...createdPost,
+            id: result.data.name
+          })
+        }
+        return result
+      })
+  },
+  editPost (context, editedPost) {
+    return editPost(editedPost).then(result => {
+      if (result && result.status === 200) {
+        context.commit('editPost', editedPost)
+      }
+      return result;
+    })
   }
 }

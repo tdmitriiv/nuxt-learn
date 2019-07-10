@@ -1,28 +1,40 @@
 <template>
   <div class="admin-post-page">
     <section class="update-form">
-      <AdminPostForm :post="loadedPost"/>
+      <AdminPostForm :post="loadedPost" @submit="onSubmit" />
     </section>
   </div>
 </template>
 
 <script>
   import AdminPostForm from '@/components/Admin/AdminPostForm.vue'
+  import { loadPostSingle } from '@/api/posts'
 
   export default {
-    name: "index",
+    name: "EditPost",
     layout: 'admin',
     components: {
       AdminPostForm
     },
-    data () {
+    async asyncData ({ params }) {
+      const loadedPost = await loadPostSingle(params.postid);
+
       return {
         loadedPost: {
-          author: 'Dmitry',
-          title: 'My post',
-          content: 'Some content',
-          thumbnailLink: 'https://www.maketecheasier.com/assets/uploads/2019/01/intermediate-tech-feature.jpg'
+          ...loadedPost,
+          id: params.postid
         }
+      }
+    },
+    methods: {
+      onSubmit (editedPost) {
+        this.$store.dispatch('editPost', editedPost)
+          .then(result => {
+            if (result && result.status === 200) {
+              this.$router.push('/admin')
+            }
+          })
+          .catch(error => console.error(error))
       }
     }
   }

@@ -35,3 +35,18 @@ export const loadPostSingle = (id = '') => {
   })
   */
 };
+
+export const editPost = (postData) => {
+  return axios.put(`https://nuxt-blog-68510.firebaseio.com/posts/${postData.id}.json`, postData)
+};
+
+export const createPost = (postData) => {
+  return axios.put(`https://nuxt-blog-68510.firebaseio.com/posts/${id}.json`, postData)
+};
+
+export const addPost = (postData) => {
+  return axios.post('https://nuxt-blog-68510.firebaseio.com/posts.json', {
+    ...postData,
+    updatedDate: new Date()
+  })
+};
