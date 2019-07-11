@@ -5,14 +5,8 @@
 </template>
 
 <script>
-import PostList from '@/components/posts/PostList'
-import { loadPosts } from '@/api/posts'
-
 export default {
   name: 'PostPage',
-  components: {
-    PostList
-  },
   // async fetch (context) {
   //   if (context.store.state.loadedPosts.length > 0) {
   //     return null

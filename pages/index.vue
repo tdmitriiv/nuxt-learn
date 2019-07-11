@@ -8,14 +8,7 @@
 </template>
 
 <script>
-import PostList from '@/components/posts/PostList'
-import { loadPosts } from '@/api/posts'
-
-
 export default {
-  components: {
-    PostList
-  },
   /*
   async asyncData (context) {
     const loadedPosts = await loadPosts();

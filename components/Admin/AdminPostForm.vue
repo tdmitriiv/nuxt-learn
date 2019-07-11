@@ -19,15 +19,8 @@
 </template>
 
 <script>
-  import AppControlInput from '@/components/Ui/AppControlInput.vue'
-  import AppButton from '@/components/Ui/AppButton.vue'
-
   export default {
     name: "AdminPostForm",
-    components: {
-      AppControlInput,
-      AppButton
-    },
     props: {
       post: {
         type: Object,

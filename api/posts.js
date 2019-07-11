@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const loadPosts = () => {
-  return axios.get('https://nuxt-blog-68510.firebaseio.com/posts.json')
+  return axios.get(`${process.env.baseUrl}/posts.json`)
     .then(res => res.data)
   /*
   return new Promise((resolve) => {
@@ -17,7 +17,7 @@ export const loadPosts = () => {
 };
 
 export const loadPostSingle = (id = '') => {
-  return axios.get(`https://nuxt-blog-68510.firebaseio.com/posts/${id}.json`)
+  return axios.get(`${process.env.baseUrl}/posts/${id}.json`)
     .then(res => res.data)
   /*
   return new Promise((resolve) => {
@@ -37,15 +37,15 @@ export const loadPostSingle = (id = '') => {
 };
 
 export const editPost = (postData) => {
-  return axios.put(`https://nuxt-blog-68510.firebaseio.com/posts/${postData.id}.json`, postData)
+  return axios.put(`${process.env.baseUrl}/posts/${postData.id}.json`, postData)
 };
 
 export const createPost = (postData) => {
-  return axios.put(`https://nuxt-blog-68510.firebaseio.com/posts/${id}.json`, postData)
+  return axios.put(`${process.env.baseUrl}/posts/${id}.json`, postData)
 };
 
 export const addPost = (postData) => {
-  return axios.post('https://nuxt-blog-68510.firebaseio.com/posts.json', {
+  return axios.post(`${process.env.baseUrl}/posts.json`, {
     ...postData,
     updatedDate: new Date()
   })
