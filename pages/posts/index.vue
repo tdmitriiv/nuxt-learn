@@ -6,6 +6,8 @@
 
 <script>
 export default {
+  // local middleware
+  // middleware: 'log',
   name: 'PostPage',
   // async fetch (context) {
   //   if (context.store.state.loadedPosts.length > 0) {
