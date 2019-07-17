@@ -3,7 +3,7 @@
     <article>
       <div class="post-thumbnail" :style="{ backgroundImage: 'url(' + thumbnail + ')' }"></div>
       <div class="post-content">
-        <h2>{{ title }}</h2>
+        <h2 :style="{ 'color': colors.blue }">{{ title }}</h2>
         <p>{{ previewText }}</p>
       </div>
     </article>
@@ -38,6 +38,9 @@
     computed: {
       postLink () {
         return this.isAdmin ? '/admin/' + this.id : '/posts/' + this.id
+      },
+      colors () {
+        return this.$store.state.posts.colors
       }
     }
   }

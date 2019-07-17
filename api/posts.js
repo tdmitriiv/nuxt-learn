@@ -1,8 +1,7 @@
-import axios from 'axios'
+import axios from "axios";
 
 export const loadPosts = () => {
-  return axios.get(`${process.env.baseUrl}/posts.json`)
-    .then(res => res.data)
+  return axios.get(`${process.env.baseUrl}/posts.json`).then(res => res.data);
   /*
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -16,9 +15,10 @@ export const loadPosts = () => {
   */
 };
 
-export const loadPostSingle = (id = '') => {
-  return axios.get(`${process.env.baseUrl}/posts/${id}.json`)
-    .then(res => res.data)
+export const loadPostSingle = (id = "") => {
+  return axios
+    .get(`${process.env.baseUrl}/posts/${id}.json`)
+    .then(res => res.data);
   /*
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -36,17 +36,20 @@ export const loadPostSingle = (id = '') => {
   */
 };
 
-export const editPost = (postData) => {
-  return axios.put(`${process.env.baseUrl}/posts/${postData.id}.json`, postData)
+export const editPost = postData => {
+  return axios.put(
+    `${process.env.baseUrl}/posts/${postData.id}.json`,
+    postData
+  );
 };
 
-export const createPost = (postData) => {
-  return axios.put(`${process.env.baseUrl}/posts/${id}.json`, postData)
+export const createPost = postData => {
+  return axios.put(`${process.env.baseUrl}/posts/${id}.json`, postData);
 };
 
-export const addPost = (postData) => {
+export const addPost = postData => {
   return axios.post(`${process.env.baseUrl}/posts.json`, {
     ...postData,
     updatedDate: new Date()
-  })
+  });
 };

@@ -4,7 +4,11 @@ import getters from './getters'
 
 export default {
   state: {
-    loadedPosts: []
+    loadedPosts: [],
+    colors: {
+      blue: '#0000ff',
+      red: '#ff0000'
+    }
   },
   mutations,
   actions,

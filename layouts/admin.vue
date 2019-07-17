@@ -4,10 +4,10 @@
   </div>
 </template>
 <style>
-  html {
-    font-family: 'Roboto', sans-serif;
-  }
-  body {
-    margin: 0;
-  }
+html {
+  font-family: "Roboto", sans-serif;
+}
+body {
+  margin: 0;
+}
 </style>
