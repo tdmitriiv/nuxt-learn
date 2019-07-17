@@ -1,14 +1,14 @@
 export default {
-  setPosts (state, posts) {
-    state.loadedPosts = posts
+  setPosts(state, posts) {
+    state.loadedPosts = posts;
   },
-  addPost (state, post) {
-    state.loadedPosts.push(post)
+  addPost(state, post) {
+    state.loadedPosts.push(post);
   },
-  editPost (state, edittedPost) {
+  editPost(state, edittedPost) {
     const findIndex = state.loadedPosts.findIndex(post => {
-      return post.id === edittedPost.id
+      return post.id === edittedPost.id;
     });
-    state.loadedPosts[findIndex] = edittedPost
+    state.loadedPosts[findIndex] = edittedPost;
   }
-}
+};

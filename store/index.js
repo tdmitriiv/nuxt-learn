@@ -1,5 +1,5 @@
-import Vuex from 'vuex'
-import postsModule from './modules/posts';
+import Vuex from "vuex";
+import postsModule from "./modules/posts";
 
 const createStore = () => {
   return new Vuex.Store({
@@ -7,7 +7,7 @@ const createStore = () => {
     modules: {
       posts: postsModule
     }
-  })
+  });
 };
 
-export default createStore
+export default createStore;
