@@ -34,22 +34,13 @@ export default {
   },
   methods: {
     onSubmit() {
-      const authUrl = this.isLogin
-        ? `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${process.env.fbAPIKey}`
-        : `https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=${process.env.fbAPIKey}`;
-      this.$axios
-        .$post(authUrl, {
-          token: "",
-          email: this.email,
-          password: this.password,
-          returnSecureToken: true
-        })
-        .then(result => {
-          console.log(result);
-        })
-        .catch(error => {
-          console.error(error);
-        });
+      this.$store.dispatch('auth', {
+        isLogin: this.isLogin,
+        email: this.email,
+        password: this.password
+      }).then(() => {
+        this.$router.push('/admin')
+      })
     }
   }
 };

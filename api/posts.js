@@ -36,9 +36,9 @@ export const loadPostSingle = (id = "") => {
   */
 };
 
-export const editPost = postData => {
+export const editPost = (postData, token) => {
   return axios.put(
-    `${process.env.baseUrl}/posts/${postData.id}.json`,
+    `${process.env.baseUrl}/posts/${postData.id}.json?auth=${token}`,
     postData
   );
 };
@@ -47,8 +47,8 @@ export const createPost = postData => {
   return axios.put(`${process.env.baseUrl}/posts/${id}.json`, postData);
 };
 
-export const addPost = postData => {
-  return axios.post(`${process.env.baseUrl}/posts.json`, {
+export const addPost = (postData, token) => {
+  return axios.post(`${process.env.baseUrl}/posts.json?auth=${token}`, {
     ...postData,
     updatedDate: new Date()
   });

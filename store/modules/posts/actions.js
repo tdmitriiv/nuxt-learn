@@ -25,7 +25,7 @@ export default {
       ...post,
       updatedDate: new Date()
     };
-    return addPost(createdPost).then(result => {
+    return addPost(createdPost, context.rootState.auth.token).then(result => {
       if (result && result.status === 200) {
         context.commit("addPost", {
           ...createdPost,
@@ -36,7 +36,7 @@ export default {
     });
   },
   editPost(context, editedPost) {
-    return editPost(editedPost).then(result => {
+    return editPost(editedPost, context.rootState.auth.token).then(result => {
       if (result && result.status === 200) {
         context.commit("editPost", editedPost);
       }
